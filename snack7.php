@@ -22,46 +22,6 @@ $alunni = [
       'matematica' => 8,
       'inglese' => 10
     ]
-  ],
-  [
-    'nome' => 'Ron',
-    'cognome' => 'Weasly',
-    'voti' => [
-      'letteratura' => 6,
-      'fisica' => 5,
-      'matematica' => 6,
-      'inglese' => 8
-    ]
-  ],
-  [
-    'nome' => 'Luna',
-    'cognome' => 'Lovegood',
-    'voti' => [
-      'letteratura' => 10,
-      'fisica' => 7,
-      'matematica' => 6,
-      'inglese' => 8
-    ]
-  ],
-  [
-    'nome' => 'Neville',
-    'cognome' => 'Paciock',
-    'voti' => [
-      'letteratura' => 7,
-      'fisica' => 5,
-      'matematica' => 7,
-      'inglese' => 9
-    ]
-  ],
-  [
-    'nome' => 'Dean',
-    'cognome' => 'Thomas',
-    'voti' => [
-      'letteratura' => 4,
-      'fisica' => 5,
-      'matematica' => 9,
-      'inglese' => 7,
-    ]
   ]
 ]
 
@@ -90,5 +50,19 @@ $alunni = [
   <h4><?php echo $alunno['nome'] ?> <?php echo $alunno['cognome'] ?></h4>
   <p>Il voto medio è : <?php echo $media; ?></p>
   <?php } ?>
+
+
+  <h1>Classe Hogwarts</h1>
+  <?php 
+  foreach($alunni as $key => $alunno) { ?>
+    <h4><?php echo $alunno['nome']?> <?php echo $alunno['cognome']?></h4>
+    <?php foreach($alunno['voti'] as $key => $voti) : ?>
+     <p><?php echo $key; ?>=<?php echo $voti; ?></p>
+    <?php endforeach; ?>
+    <p> La media è: <?php echo round(array_sum($alunno['voti']) / count($alunno['voti'])) ?></p>
+   
+  <?php } ?>
+
+
 </body>
 </html>
